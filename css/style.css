@@ -75,7 +75,7 @@
     font-size: 1.125rem;
 }
 
-fs-24 {
+.fs-24 {
     font-size: 1.5rem;
 }
 
@@ -102,3 +102,36 @@ fs-24 {
 .hover\:c-primary:hover {
     color: #2c5530;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap');
+.f-montserrat { font-family: 'Montserrat', sans-serif; }
+.f-nunito { font-family: 'Nunito', sans-serif; }
+
+.transition-300 { transition: all 0.3s ease; }
+.transition-200 { transition: all 0.2s ease; }
+
+.hover\:translate-y--2:hover { transform: translateY(-2px); }
+.hover\:scale-105:hover { transform: scale(1.05); }
+.hover\:scale-102:hover { transform: scale(1.02); }
+
+.hover\:bg-gray-50:hover { background-color: #f9fafb; }
+.hover\:bg-gray-100:hover { background-color: #f3f4f6; }
+.hover\:bg-primary:hover { background-color: #2c5530; }
+.hover\:text-white:hover { color: white; }
+
+.hover\:shadow-md:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.hover\:shadow-lg:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.focus\:outline-2:focus { outline: 2px solid; }
+.focus\:outline-primary:focus { outline-color: #2c5530; }
+.focus\:outline-offset-2:focus { outline-offset: 2px; }
+
+.active\:scale-98:active { transform: scale(0.98); }
+
+.disabled\:bg-gray-300:disabled { background-color: #d1d5db; }
+.disabled\:cursor-not-allowed:disabled { cursor: not-allowed; }

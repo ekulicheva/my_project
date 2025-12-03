@@ -3,238 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Кофе</title>
+    <title>Кофе - Твой персональный кофе</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel = "icon" href="assets/icons/IC_coffee.png" type="image/x-icon">
+    <link rel="icon" href="assets/icons/IC_coffee.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Nunito:ital,wght@0,300;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
 </head>
 
-<body>
-    <header>
-        <div class="logo">
-            <img src="assets/fonts/LOGO.png"> 
+<body class="font-sans text-gray-800 bg-gray-50">
+
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-20 py-16 d-flex justify-between align-center">
+            <div class="logo">
+                <img src="assets/fonts/LOGO.png" alt="Revo Coffee Logo" class="h-40">
+            </div>
+            
+            <h1 class="fs-24 font-bold text-primary text-center d-none md:d-block">
+                Твой персональный кофе
+            </h1>
+            
+            <nav class="d-none md:d-block">
+                <h2 class="sr-only">Главная навигация</h2>
+                <ul class="d-flex gap-24 list-none">
+                    <li>
+                        <a href="#section-features" class="text-gray-600 hover:text-primary hover:underline font-medium transition-colors duration-200">
+                            Кофе
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-coffee" class="text-gray-600 hover:text-primary hover:underline font-medium transition-colors duration-200">
+                            Фильтр кофе
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-combo" class="text-gray-600 hover:text-primary hover:text-primary hover:underline font-medium transition-colors duration-200">
+                            Комбо
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section-gifts" class="text-gray-600 hover:text-primary hover:underline font-medium transition-colors duration-200">
+                            Подарочные наборы
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#contact" class="text-gray-600 hover:text-primary hover:underline font-medium transition-colors duration-200">
+                            Контакты
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <button class="md:d-none bg-primary text-white p-12 rounded cursor-pointer">
+                Меню
+            </button>
         </div>
-        <h1>Твой персональный кофе</h1>
-        <nav>
-            <h2>Главная</h2>
-            <ul>
-                <li>
-                    <a href="section-features">Кофе</a>
-                </li>
-                <li>
-                    <a href="section-coffee">Фильтр кофе</a>
-                </li>
-                <li>
-                    <a href="section-combo">Комбо</a>
-                </li>
-                <li>
-                    <a href="section-gifts">Подарочные наборы</a>
-                </li>
-                <li>
-                    <a href="">Контакты</a>
-                </li>
-            </ul>
-        </nav>
-        <div>
-            <img src="assets/img/Баннер.png">
+        
+        <div class="w-full">
+            <img src="assets/img/Баннер.png" alt="Кофе баннер" class="w-full h-auto max-h-400 object-cover">
         </div>
     </header>
+    
     <main>
-        <section id="section-features">
-            <h3>Твой персональный кофе</h3>
-            <h2>Кофе строит твою базу</h2>
-            <div>
-                <ul>
-                    <li>
-                        <img src="assets/icons/ic.png">
+        <section id="section-features" class="py-48 px-20 bg-white">
+            <div class="container mx-auto">
+                <div class="text-center mb-48">
+                    <h3 class="fs-16 uppercase tracking-wider text-gray-500 font-semibold mb-12">
+                        Твой персональный кофе
+                    </h3>
+                    <h2 class="fs-36 font-bold text-gray-900">
+                        Кофе строит твою базу
+                    </h2>
+                </div>
+                
+                <div class="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-32 d-grid">
+                    <div class="text-center p-24 rounded-lg bg-gray-50 hover:bg-white hover:shadow-lg transition-all duration-300">
+                        <img src="assets/icons/ic.png" alt="Происхождение" class="w-64 h-64 mx-auto mb-24">
                         <div>
-                            <p>Происхождение</p>
-                            <p>Кофейные зерна арабика и робуста имеют качество международного стандарта</p>
+                            <p class="fs-20 font-semibold text-gray-900 mb-12">
+                                Происхождение
+                            </p>
+                            <p class="text-gray-600 lh-1-6">
+                                Кофейные зерна арабика и робуста имеют качество международного стандарта
+                            </p>
                         </div>
-                    </li>
-                    <li>
-                        <img src="assets/icons/IC (1).png">
+                    </div>
+                    
+                    <div class="text-center p-24 rounded-lg bg-gray-50 hover:bg-white hover:shadow-lg transition-all duration-300">
+                        <img src="assets/icons/IC (1).png" alt="Качество" class="w-64 h-64 mx-auto mb-24">
                         <div>
-                            <p>Качество</p>
-                            <p>Для мастера в&nbsp;каждом кофейном зерне сконцентрирована вся суть будущего напитка</p>
+                            <p class="fs-20 font-semibold text-gray-900 mb-12">
+                                Качество
+                            </p>
+                            <p class="text-gray-600 lh-1-6">
+                                Для мастера в&nbsp;каждом кофейном зерне сконцентрирована вся суть будущего напитка
+                            </p>
                         </div>
-                    </li>
-                    <li>
-                        <img src="assets/icons/IC (2).png">
+                    </div>
+                    
+                    <div class="text-center p-24 rounded-lg bg-gray-50 hover:bg-white hover:shadow-lg transition-all duration-300">
+                        <img src="assets/icons/IC (2).png" alt="Кофейные зёрна" class="w-64 h-64 mx-auto mb-24">
                         <div>
-                            <p>Кофейные зёрна</p>
-                            <p>На&nbsp;происхождение и&nbsp;качество зёрен приходится до&nbsp;70% вкусовых характеристик готового кофе.</p>
+                            <p class="fs-20 font-semibold text-gray-900 mb-12">
+                                Кофейные зёрна
+                            </p>
+                            <p class="text-gray-600 lh-1-6">
+                                На&nbsp;происхождение и&nbsp;качество зёрен приходится до&nbsp;70% вкусовых характеристик готового кофе.
+                            </p>
                         </div>
-                    </li>
-                    <li>
-                        <img src="assets/icons/IC (3).png">
+                    </div>
+                    
+                    <div class="text-center p-24 rounded-lg bg-gray-50 hover:bg-white hover:shadow-lg transition-all duration-300">
+                        <img src="assets/icons/IC (3).png" alt="Раздачи" class="w-64 h-64 mx-auto mb-24">
                         <div>
-                            <p>Раздачи</p>
-                            <p>В&nbsp;ходе кропотливой обжарки кофейные зёрна проходят через всю палитру оттенков&nbsp;&mdash; от&nbsp;зелёного до&nbsp;тёмно-коричневого.</p>
+                            <p class="fs-20 font-semibold text-gray-900 mb-12">
+                                Обжарка
+                            </p>
+                            <p class="text-gray-600 lh-1-6">
+                                В&nbsp;ходе кропотливой обжарки кофейные зёрна проходят через всю палитру оттенков&nbsp;&mdash; от&nbsp;зелёного до&nbsp;тёмно-коричневого.
+                            </p>
                         </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section id="section-coffee">
-            <h3>Выбери свой любимый</h3>
-            <h2>Стандартный вкус</h2>
-            <div>
-                <ul>
-                    <li>
-                        <img src="assets/img/IMAGE.png">
-                        <div>
-                            <p>99000$</p>
-                            <p>РЕВО утро</p>
-                            <p>Горький, сладкий, цветочный</p>
-                            <div>
-                                <button>Купить сейчас</button>
-                                <button>Детали</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="assets/img/image (1).png">
-                        <div>
-                            <p>139000$</p>
-                            <p>РЕВО Происхождение</p>
-                            <p>Сладкий, менее горький, кислый клубничный вкус</p>
-                            <div>
-                                <button>Купить сейчас</button>
-                                <button>Детали</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="assets/img/IMAGE (2).png">
-                        <div>
-                            <p>85000$</p>
-                            <p>РЕВО Каждый день</p>
-                            <p>Сбалансированный, горький, шоколадный</p>
-                            <div>
-                                <button>Купить сейчас</button>
-                                <button>Детали</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="assets//img/IMAGE (3).png">
-                        <p>75000$</p>
-                        <p>РЕВО Смелый да</p>
-                        <p>Богатый, горький, традиционный</p>
-                        <div>
-                            <button>Купить сейчас</button>
-                            <button>Детали</button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <section id="section-gifts">
-            <h3>Лучший подарок для друга</h3>
-            <h2>Подарочные наборы</h2>
-            <div>
-                <div>
-                    <div>
-                        <img src="assets/img/pr-0018-r.png">
-                        <div>
-                            <div>
-                                <p>285.000$</p>
-                                <p>Набор подарков &laquo;Вьетнамский фильтр-кофе&raquo;</p>
-                                <p>Отличный подарок для истинных ценителей кофе. Зёрна тщательно отбираются и&nbsp;обжариваются компанией Revo. Мы&nbsp;объединяем передовые технологии, секреты известных обжарщиков, а&nbsp;также любовь и&nbsp;страсть наших мастеров, чтобы создавать чашку чистого кофе специально для вас</p>
-                                <ul>
-                                    <li>
-                                        <img src="assets/icons/IC_coffee.png">
-                                        <div>
-                                            <p>Тип семян</p>
-                                            <p>Тонкая смесь робусты</p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <img src="assets/icons/IC_Mountain.png">
-                                        <div>
-                                            <p>Высота</p>
-                                            <p>700-800м</p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <button>Купить сейчас</button>
-                                <button>Детали</button>
-                            </div>
-                        </div>
-                        <ul>
-                            <li>
-                                <button> 1 </button>
-                            </li>
-                            <li>
-                                <button> 2 </button>
-                            </li>
-                            <li>
-                                <button> 3 </button>
-                            </li>
-                        </ul>
-                    </div>    
+                    </div>
                 </div>
             </div>
         </section>
-        <section id="section-combo">
-            <h3>Твой персональный кофе</h3>
-            <h2>Комбо</h2>
-            <div>
-                <ul>
-                    <li>
-                        <img src="assets/img/image (6).png">
-                        <div>
-                            <div>
-                                <div>
-                                    <p>147.000$</p>
-                                    <p><s>155.000$</s></p>
-                                </div>
-                                <p>Тёмное REVO комбо</p>
-                                <p>Содержание кофеина в&nbsp;Revo Dam Da&nbsp;достаточно сильное, чтобы не&nbsp;дать вам уснуть на&nbsp;работе...</p>
+        
+        <section id="section-coffee" class="py-48 px-20 bg-gray-50">
+            <div class="container mx-auto">
+                <div class="text-center mb-48">
+                    <h3 class="fs-16 uppercase tracking-wider text-gray-500 font-semibold mb-12">
+                        Выбери свой любимый
+                    </h3>
+                    <h2 class="fs-36 font-bold text-gray-900">
+                        Стандартный вкус
+                    </h2>
+                </div>
+                
+                <div class="grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-32 d-grid">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:translate-y--4 transition-all duration-300">
+                        <img src="assets/img/IMAGE.png" alt="РЕВО утро" class="w-full h-200 object-cover">
+                        <div class="p-24">
+                            <div class="d-flex justify-between align-center mb-16">
+                                <p class="fs-24 font-bold text-primary">
+                                    99.000$
+                                </p>
                             </div>
-                            <button>Купить сейчас</button>
-                            <button>Детали</button>
-                        </div>
-                    </li>
-                    <li>
-                        <img src="assets/img/image (7).png">
-                        <div>
-                            <div>
-                                <div>
-                                    <p>156.000$</p>
-                                    <p><s>165.000$</s></p>
-                                </div>
-                                <p>REVO на&nbsp;каждый день комбо</p>
-                                <p>Revo Everyday это смесь горечи и&nbsp;аромата зёрен арабики...</p>
+                            <p class="fs-20 font-semibold text-gray-900 mb-12">
+                                РЕВО утро
+                            </p>
+                            <p class="text-gray-600 mb-24 lh-1-6">
+                                Горький, сладкий, цветочный
+                            </p>
+                            <div class="d-flex gap-12">
+                                <button class="flex-1 bg-primary text-white py-12 px-16 rounded cursor-pointer hover:bg-primary-dark hover:scale-102 transition-all duration-200 font-medium">
+                                    Купить сейчас
+                                </button>
+                                <button class="flex-1 border-1 border-primary text-primary py-12 px-16 rounded cursor-pointer hover:bg-primary hover:text-white transition-all duration-200 font-medium">
+                                    Детали
+                                </button>
                             </div>
-                            <button>Купить сейчас</button>
-                            <button>Детали</button>
                         </div>
-                    </li>
-                    <li>
-                        <img src="assets/img/image (8).png">
-                        <div>
-                            <div>
-                                <div>
-                                    <p>147.000$</p>
-                                    <p><s>155.000$</s></p>
-                                </div>
-                                <p>REVO медовый комбо</p>
-                                <p>Мёд&nbsp;&mdash; в&nbsp;наименовании Revo Honey проиходит от&nbsp;метода обработки зёрн арабики</p>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:translate-y--4 transition-all duration-300">
+                        <img src="assets/img/image (1).png" alt="РЕВО Происхождение" class="w-full h-200 object-cover">
+                        <div class="p-24">
+                            <div class="d-flex justify-between align-center mb-16">
+                                <p class="fs-24 font-bold text-primary">
+                                    139.000$
+                                </p>
                             </div>
-                            <button>Купить сейчас</button>
-                            <button>Детали</button>
+                            <p class="fs-20 font-semibold text-gray-900 mb-12">
+                                РЕВО Происхождение
+                            </p>
+                            <p class="text-gray-600 mb-24 lh-1-6">
+                                Сладкий, менее горький, кислый клубничный вкус
+                            </p>
+                            <div class="d-flex gap-12">
+                                <button class="flex-1 bg-primary text-white py-12 px-16 rounded cursor-pointer hover:bg-primary-dark hover:scale-102 transition-all duration-200 font-medium">
+                                    Купить сейчас
+                                </button>
+                                <button class="flex-1 border-1 border-primary text-primary py-12 px-16 rounded cursor-pointer hover:bg-primary hover:text-white transition-all duration-200 font-medium">
+                                    Детали
+                                </button>
+                            </div>
                         </div>
-                    </li>
-                </ul>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:translate-y--4 transition-all duration-300">
+                        <img src="assets/img/IMAGE (2).png" alt="РЕВО Каждый день" class="w-full h-200 object-cover">
+                        <div class="p-24">
+                            <div class="d-flex justify-between align-center mb-16">
+                                <p class="fs-24 font-bold text-primary">
+                                    85.000$
+                                </p>
+                            </div>
+                            <p class="fs-20 font-semibold text-gray-900 mb-12">
+                                РЕВО Каждый день
+                            </p>
+                            <p class="text-gray-600 mb-24 lh-1-6">
+                                Сбалансированный, горький, шоколадный
+                            </p>
+                            <div class="d-flex gap-12">
+                                <button class="flex-1 bg-primary text-white py-12 px-16 rounded cursor-pointer hover:bg-primary-dark hover:scale-102 transition-all duration-200 font-medium">
+                                    Купить сейчас
+                                </button>
+                                <button class="flex-1 border-1 border-primary text-primary py-12 px-16 rounded cursor-pointer hover:bg-primary hover:text-white transition-all duration-200 font-medium">
+                                    Детали
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:translate-y--4 transition-all duration-300">
+                        <img src="assets/img/IMAGE (3).png" alt="РЕВО Смелый да" class="w-full h-200 object-cover">
+                        <div class="p-24">
+                            <div class="d-flex justify-between align-center mb-16">
+                                <p class="fs-24 font-bold text-primary">
+                                    75.000$
+                                </p>
+                            </div>
+                            <p class="fs-20 font-semibold text-gray-900 mb-12">
+                                РЕВО Смелый да
+                            </p>
+                            <p class="text-gray-600 mb-24 lh-1-6">
+                                Богатый, горький, традиционный
+                            </p>
+                            <div class="d-flex gap-12">
+                                <button class="flex-1 bg-primary text-white py-12 px-16 rounded cursor-pointer hover:bg-primary-dark hover:scale-102 transition-all duration-200 font-medium">
+                                    Купить сейчас
+                                </button>
+                                <button class="flex-1 border-1 border-primary text-primary py-12 px-16 rounded cursor-pointer hover:bg-primary hover:text-white transition-all duration-200 font-medium">
+                                    Детали
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="section-gifts" class="py-48 px-20 bg-white">
+            <div class="container mx-auto">
+                <div class="text-center mb-48">
+                    <h3 class="fs-16 uppercase tracking-wider text-gray-500 font-semibold mb-12">
+                        Лучший подарок для друга
+                    </h3>
+                    <h2 class="fs-36 font-bold text-gray-900">
+                        Подарочные наборы
+                    </h2>
+                </div>
+                
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                    <div class="d-flex flex-col lg:flex-row">
+                        <div class="lg:w-50">
+                            <img src="assets/img/pr-0018-r.png" alt="Набор подарков Вьетнамский фильтр-кофе" class="w-full h-full object-cover min-h-300">
+                        </div>
+                        
+                        <div class="lg:w-50 p-32">
+                            <div class="mb-32">
+                                <div class="d-flex justify-between align-center mb-20">
+                                    <p class="fs-28 font-bold text-primary">
+                                        285.000$
+                                    </p>
+                                </div>
+                                
+                                <p class="fs-24 font-bold text-gray-900 mb-16">
+                                    Набор подарков «Вьетнамский фильтр-кофе»
+                                </p>
+                                
+                                <p class="text-gray-600 mb-24 lh-1-6">
+                                    Отличный подарок для истинных ценителей кофе. Зёрна тщательно отбираются и&nbsp;обжариваются компанией Revo. Мы&nbsp;объединяем передовые технологии, секреты известных обжарщиков, а&nbsp;также любовь и&nbsp;страсть наших мастеров, чтобы создавать чашку чистого кофе специально для вас
+                                </p>
+                                
+                                <div class="d-flex gap-32">
+                                    <div class="d-flex align-center gap-12">
+                                        <img src="assets/icons/IC_coffee.png" alt="Тип семян" class="w-32 h-32">
+                                        <div>
+                                            <p class="fs-14 text-gray-500 mb-4">
+                                                Тип зёрен
+                                            </p>
+                                            <p class="font-medium text-gray-800">
+                                                Тонкая смесь робусты
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-flex align-center gap-12">
+                                        <img src="assets/icons/IC_Mountain.png" alt="Высота" class="w-32 h-32">
+                                        <div>
+                                            <p class="fs-14 text-gray-500 mb-4">
+                                                Высота
+                                            </p>
+                                            <p class="font-medium text-gray-800">
+                                                700-800м
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex gap-12">
+                                <button class="flex-1 bg-primary text-white py-16 px-24 rounded cursor-pointer hover:bg-primary-dark hover:scale-102 transition-all duration-200 font-medium">
+                                    Купить сейчас
+                                </button>
+                                <button class="flex-1 border-1 border-primary text-primary py-16 px-24 rounded cursor-pointer hover:bg-primary hover:text-white transition-all duration-200 font-medium">
+                                    Детали
+                                </button>
+                            </div>
+                            
+                            <div class="d-flex justify-center gap-12 mt-32">
+                                <button class="w-32 h-32 rounded-full border-1 border-gray-300 bg-white text-gray-700 cursor-pointer hover:bg-primary hover:text-white hover:border-primary transition-all duration-200">
+                                    1
+                                </button>
+                                <button class="w-32 h-32 rounded-full border-1 border-gray-300 bg-white text-gray-700 cursor-pointer hover:bg-primary hover:text-white hover:border-primary transition-all duration-200">
+                                    2
+                                </button>
+                                <button class="w-32 h-32 rounded-full border-1 border-gray-300 bg-white text-gray-700 cursor-pointer hover:bg-primary hover:text-white hover:border-primary transition-all duration-200">
+                                    3
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="section-combo" class="py-48 px-20 bg-gray-50">
+            <div class="container mx-auto">
+                <div class="text-center mb-48">
+                    <h3 class="fs-16 uppercase tracking-wider text-gray-500 font-semibold mb-12">
+                        Твой персональный кофе
+                    </h3>
+                    <h2 class="fs-36 font-bold text-gray-900">
+                        Комбо
+                    </h2>
+                </div>
+                
+                <div class="grid-cols-1 md:grid-cols-3 gap-32 d-grid">
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:translate-y--4 transition-all duration-300">
+                        <img src="assets/img/image (6).png" alt="Тёмное REVO комбо" class="w-full h-200 object-cover">
+                        <div class="p-24">
+                            <div class="mb-20">
+                                <div class="d-flex justify-between align-center mb-12">
+                                    <p class="fs-24 font-bold text-primary">
+                                        147.000$
+                                    </p>
+                                    <p class="fs-18 text-gray-400 line-through">
+                                        155.000$
+                                    </p>
+                                </div>
+                                
+                                <p class="fs-20 font-semibold text-gray-900 mb-12">
+                                    Тёмное REVO комбо
+                                </p>
+                                
+                                <p class="text-gray-600 lh-1-6">
+                                    Содержание кофеина в&nbsp;Revo Dam Da&nbsp;достаточно сильное, чтобы не&nbsp;дать вам уснуть на&nbsp;работе...
+                                </p>
+                            </div>
+                            
+                            <div class="d-flex gap-12">
+                                <button class="flex-1 bg-primary text-white py-12 px-16 rounded cursor-pointer hover:bg-primary-dark hover:scale-102 transition-all duration-200 font-medium">
+                                    Купить сейчас
+                                </button>
+                                <button class="flex-1 border-1 border-primary text-primary py-12 px-16 rounded cursor-pointer hover:bg-primary hover:text-white transition-all duration-200 font-medium">
+                                    Детали
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:translate-y--4 transition-all duration-300">
+                        <img src="assets/img/image (7).png" alt="REVO на каждый день комбо" class="w-full h-200 object-cover">
+                        <div class="p-24">
+                            <div class="mb-20">
+                                <div class="d-flex justify-between align-center mb-12">
+                                    <p class="fs-24 font-bold text-primary">
+                                        156.000$
+                                    </p>
+                                    <p class="fs-18 text-gray-400 line-through">
+                                        165.000$
+                                    </p>
+                                </div>
+                                
+                                <p class="fs-20 font-semibold text-gray-900 mb-12">
+                                    REVO на каждый день комбо
+                                </p>
+                                
+                                <p class="text-gray-600 lh-1-6">
+                                    Revo Everyday это смесь горечи и&nbsp;аромата зёрен арабики...
+                                </p>
+                            </div>
+                            
+                            <div class="d-flex gap-12">
+                                <button class="flex-1 bg-primary text-white py-12 px-16 rounded cursor-pointer hover:bg-primary-dark hover:scale-102 transition-all duration-200 font-medium">
+                                    Купить сейчас
+                                </button>
+                                <button class="flex-1 border-1 border-primary text-primary py-12 px-16 rounded cursor-pointer hover:bg-primary hover:text-white transition-all duration-200 font-medium">
+                                    Детали
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl hover:translate-y--4 transition-all duration-300">
+                        <img src="assets/img/image (8).png" alt="REVO медовый комбо" class="w-full h-200 object-cover">
+                        <div class="p-24">
+                            <div class="mb-20">
+                                <div class="d-flex justify-between align-center mb-12">
+                                    <p class="fs-24 font-bold text-primary">
+                                        147.000$
+                                    </p>
+                                    <p class="fs-18 text-gray-400 line-through">
+                                        155.000$
+                                    </p>
+                                </div>
+                                
+                                <p class="fs-20 font-semibold text-gray-900 mb-12">
+                                    REVO медовый комбо
+                                </p>
+                                
+                                <p class="text-gray-600 lh-1-6">
+                                    Мёд&nbsp;&mdash; в&nbsp;наименовании Revo Honey проиходит от&nbsp;метода обработки зёрн арабики
+                                </p>
+                            </div>
+                            
+                            <div class="d-flex gap-12">
+                                <button class="flex-1 bg-primary text-white py-12 px-16 rounded cursor-pointer hover:bg-primary-dark hover:scale-102 transition-all duration-200 font-medium">
+                                    Купить сейчас
+                                </button>
+                                <button class="flex-1 border-1 border-primary text-primary py-12 px-16 rounded cursor-pointer hover:bg-primary hover:text-white transition-all duration-200 font-medium">
+                                    Детали
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="py-48 px-20 bg-primary text-white">
+            <div class="container mx-auto text-center">
+                <h2 class="fs-36 font-bold mb-24">
+                    Контакты
+                </h2>
+                <p class="fs-18 mb-32 max-w-600 mx-auto opacity-90">
+                    Свяжитесь с нами для заказа или получения дополнительной информации о наших продуктах
+                </p>
+                <div class="d-flex flex-col md:flex-row justify-center gap-32">
+                    <div>
+                        <p class="fs-20 font-semibold mb-12">Телефон</p>
+                        <p class="opacity-90">+7 888 888 88 88</p>
+                    </div>
+                    <div>
+                        <p class="fs-20 font-semibold mb-12">Email</p>
+                        <p class="opacity-90">revocoffee@gmail.com</p>
+                    </div>
+                    <div>
+                        <p class="fs-20 font-semibold mb-12">Адрес</p>
+                        <p class="opacity-90">Х., Вьетнам</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-<footer>
-    <p class="footer-sign">&copy;&nbsp;Revo Coffee Vietnam&nbsp;&mdash; 2025</p>
-</footer>
-</body>
-</html>
+
+    <footer class="bg-primary-dark text-white py-32 px-20">
+        <div class="container mx-auto text-center">
+            <p class="footer-sign fs-16 opacity-80">
+                &copy;&nbsp;Revo Coffee Vietnam&nbsp;&mdash; 2025
+            </p>
+        </div>
+    </footer>
