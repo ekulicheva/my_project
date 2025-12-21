@@ -208,17 +208,11 @@
 }
 
 .features {
-  display: grid;
-  grid-template-columns: repeat(4, 226px);
-  gap: 50px;
-  margin-top: 72px;
-  justify-content: center;
-  text-align: center;
-  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
 .features__title {
-  display: grid;
   font-size: 30px;
   font-weight: 600;
   text-align: center;
@@ -228,14 +222,19 @@
 
 .features__image {
   margin-bottom: 42px;
-  display: flex;            
-  justify-content: center;  
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: center;
 }
 
 .features__text-container {
   display: flex;
   flex-direction: column;
   gap: 11px;
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
 }
 .giftset {
     padding: 100px 0;
