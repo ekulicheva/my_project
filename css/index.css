@@ -1,0 +1,32 @@
+@import "./css/style.css";
+@import "./css/reset.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+.section {
+  padding: 86px 16px 126px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+.title {
+  text-align: center;
+  font-weight: bold;
+}
+
+.footer {
+  display: flex;
+  place-content: center;
+}
