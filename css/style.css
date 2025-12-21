@@ -219,7 +219,6 @@
 
 .features__title {
   display: grid;
-  justify-content: center;
   font-size: 30px;
   font-weight: 600;
   text-align: center;
