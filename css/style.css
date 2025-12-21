@@ -228,6 +228,8 @@
 
 .features__image {
   margin-bottom: 42px;
+  display: flex;            
+  justify-content: center;  
 }
 
 .features__text-container {
