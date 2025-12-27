@@ -1,211 +1,224 @@
 .coffee {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
-  padding: 20px;
-  list-style: none;
-  margin: 72px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding: 20px;
+    list-style: none;
+    margin: 72px auto;
+    max-width: 1200px;
 }
 
 .coffee__title {
-  display: grid;
-  justify-content: center;
-  font-size: 30px;
-  font-weight: 600;
-  text-align: center;
-  color: #2d415b;
-  margin-bottom: 60px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 600;
+    color: #2d415b;
+    margin-bottom: 60px;
 }
 
 .coffee__item {
-  display: flex;
-  align-items: center;
-  background: #fff;
-  border-radius: 18px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  overflow: hidden;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    align-items: center;
+    background: transparent;
+    gap: 40px;
+}
+
+.coffee__item>article {
+    display: contents;
 }
 
 .coffee__image {
-  flex: 0 0 210px;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: auto;
+    max-width: 250px;
+    object-fit: contain;
+    background: #f0f2f7;
+    border-radius: 12px;
+    padding: 30px;
 }
 
 .coffee__text-container {
-  flex: 1;
-  padding: 28px 32px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+    justify-content: center;
 }
 
 .card__price {
-  font-size: 20px;
-  font-weight: 800;
-  color: #c7a17a;
-  margin: 0;
+    font-size: 28px;
+    font-weight: 800;
+    color: #c7a17a;
+    margin: 0 0 8px 0;
 }
 
 .card__title {
-  font-size: 22px;
-  font-weight: 200;
-  margin: 0;
-  color: #000;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+    color: #000;
 }
 
 .card__description {
-  color: #666;
-  font-size: 14px;
-  line-height: 1.5;
-  margin: 0 0 12px;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0 0 16px 0;
 }
 
-.card__buttons {
-  display: flex;
-  align-items: center;
-  gap: 18px;
+.coffee__text-container>div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .card__button {
-  background: #c7a17a;
-  color: #fff;
-  font-weight: 700;
-  padding: 10px 22px;
-  border-radius: 22px;
-  font-size: 14px;
-  border: none;
-  cursor: pointer;
-  text-transform: uppercase;
+    background: #c7a17a;
+    color: #fff;
+    font-weight: 700;
+    padding: 12px 28px;
+    border-radius: 25px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .card__button:hover {
-  background: #f9f5e8;
-  color: #415167;
+    background: #b08968;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(199, 161, 122, 0.3);
 }
 
-.card__details {
-  color: #415167;
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-.card__details:hover {
-  text-decoration: underline;
-}
 .combo {
     list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, 390px);
-    column-gap: 3em;
-    row-gap: 1em;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 390px));
+    column-gap: 2em;
+    row-gap: 2em;
     justify-content: center;
+    padding: 0;
+    margin: 0;
+    align-items: stretch;
 }
 
 .combo__title {
-    display: grid;
-    justify-content: center;
+    text-align: center;
     font-size: 30px;
     font-weight: 600;
-    text-align: center;
     color: #2d415b;
     margin-bottom: 60px;
 }
 
 .combo__item {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 3;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
     background: #fff;
     border-radius: 18px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
     overflow: hidden;
     max-width: 390px;
-    padding: 1em;
+    width: 100%;
+    padding: 1.5em;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.combo__item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+}
+
+.combo__item>article {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .combo__image {
-    flex: 0 0 210px;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    border-radius: 12px;
+    margin-bottom: 1em;
+    flex-shrink: 0;
 }
 
 .combo__text-container {
-    flex: 1;
-    padding: 28px 32px;
     display: flex;
     flex-direction: column;
-    gap: 12px;
-
+    padding: 0 0.5em;
+    gap: 8px;
+    flex: 1;
 }
 
 .combo__card__price {
     display: flex;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 800;
     color: #c7a17a;
     margin: 0;
-    gap: 15px;
+    gap: 12px;
+    align-items: baseline;
 }
 
 .combo__card__sale {
-    opacity: 70%;
+    opacity: 0.5;
+    font-size: 18px;
+    font-weight: 400;
 }
 
 .combo__card__title {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 900;
     margin: 0;
     color: #000;
+    line-height: 1.3;
+    min-height: 62px;
+    display: flex;
+    align-items: flex-start;
 }
 
-.combo_card__description {
+.combo__card__description {
     color: #666;
     font-size: 14px;
-    line-height: 1.5;
-    margin: 0 0 12px;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+    min-height: 48px;
 }
 
 .combo__card__buttons {
     display: flex;
-    gap: 18px;
+    gap: 12px;
+    padding: 1em 0.5em 0;
+    align-self: end;
 }
 
 .combo__card__button {
     background: #c7a17a;
     color: #fff;
     font-weight: 700;
-    padding: 10px 22px;
-    border-radius: 22px;
+    padding: 12px 24px;
+    border-radius: 25px;
     font-size: 14px;
     border: none;
     cursor: pointer;
     text-transform: uppercase;
     flex: 1;
+    transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .combo__card__button:hover {
-    background: #f9f5e8;
-    color: #415167;
+    background: #b08968;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(199, 161, 122, 0.3);
 }
 
-.combo__card__details {
-    color: #415167;
-    font-size: 14px;
-    font-weight: 600;
-    text-transform: uppercase;
-    text-decoration: none;
-}
-
-.combo__card__details:hover {
-    text-decoration: underline;
-}
 
 .features {
     display: grid;
@@ -218,11 +231,9 @@
 }
 
 .features__title {
-    display: grid;
-    justify-content: center;
+    text-align: center;
     font-size: 30px;
     font-weight: 600;
-    text-align: center;
     color: #2d415b;
     margin-bottom: 60px;
 }
@@ -230,6 +241,8 @@
 .features__image {
     margin: 0 auto;
     margin-bottom: 42px;
+    max-width: 100%;
+    height: auto;
 }
 
 .features__text-container {
@@ -237,28 +250,18 @@
     flex-direction: column;
     gap: 11px;
 }
+
+
 .giftset {
     padding: 100px 0;
     background: #f4f6fa;
     text-align: center;
 }
 
-.giftset__caption {
-    font-size: 14px;
-    font-weight: 200;
-    color: #c7a17a;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 8px;
-}
-
 .giftset__title {
-    display: grid;
-    justify-content: center;
+    text-align: center;
     font-size: 30px;
     font-weight: 600;
-    text-align: center;
     color: #2d415b;
     margin-bottom: 60px;
 }
@@ -273,7 +276,6 @@
     display: grid;
     grid-template-columns: 420px 1fr 90px;
     overflow: hidden;
-    position: relative;
     padding-left: 20px;
 }
 
@@ -287,6 +289,9 @@
 .giftset__content {
     padding: 50px 60px;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .giftset__price {
@@ -315,6 +320,7 @@
     display: flex;
     gap: 40px;
     margin-bottom: 40px;
+    list-style: none;
 }
 
 .giftset__meta li {
@@ -332,14 +338,12 @@
     font-size: 13px;
     font-weight: 600;
     color: #999;
-    display: block;
 }
 
 .giftset__meta-value {
     font-size: 15px;
     font-weight: 700;
     color: #2d415b;
-    display: block;
 }
 
 .giftset__buttons {
@@ -365,13 +369,6 @@
     color: #2d415b;
 }
 
-.giftset__details {
-    color: #2d415b;
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
 .giftset__steps {
     display: flex;
     flex-direction: column;
@@ -393,6 +390,8 @@
     background: #fff;
     box-shadow: -8px 0 24px rgba(0, 0, 0, 0.05);
 }
+
+
 .header {
     display: grid;
     grid-template-columns: 28% 72%;
@@ -446,6 +445,7 @@
     object-position: center;
 }
 
+/* Навигация - использует Flexbox */
 .header__nav {
     position: relative;
     z-index: 2;
@@ -488,4 +488,597 @@
 .header__nav a:hover {
     opacity: 1;
     transform: translateX(6px);
+}
+
+/* Большие экраны (до 1200px) */
+@media (max-width: 1200px) {
+
+    /* Coffee */
+    .coffee {
+        gap: 28px;
+        padding: 15px;
+    }
+
+    .coffee__item {
+        grid-template-columns: 220px 1fr;
+        gap: 30px;
+    }
+
+    .coffee__image {
+        max-width: 220px;
+        padding: 25px;
+    }
+
+    /* Combo */
+    .combo {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 350px));
+        column-gap: 2em;
+    }
+
+    .combo__title {
+        font-size: 26px;
+        margin-bottom: 40px;
+    }
+
+    /* Features */
+    .features {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 40px;
+        padding: 0 20px;
+    }
+
+    /* Giftset */
+    .giftset__card {
+        grid-template-columns: 350px 1fr 80px;
+        padding-left: 15px;
+    }
+
+    .giftset__content {
+        padding: 40px 40px;
+    }
+}
+
+/* Планшеты (до 1024px) */
+@media (max-width: 1024px) {
+
+    /* Header */
+    .header {
+        grid-template-columns: 35% 65%;
+    }
+
+    .header__left {
+        padding: 40px 30px;
+        padding-left: 50px;
+    }
+
+    .header__title {
+        font-size: 56px;
+        margin-right: -80px;
+    }
+
+    .header__logo {
+        width: 120px;
+    }
+
+    .header__nav {
+        padding: 80px 40px;
+    }
+
+    .header__nav ul {
+        gap: 25px;
+    }
+
+    /* Coffee */
+    .coffee {
+        gap: 24px;
+        margin: 50px auto;
+    }
+
+    .coffee__title {
+        font-size: 26px;
+        margin-bottom: 40px;
+    }
+
+    .coffee__item {
+        grid-template-columns: 200px 1fr;
+        gap: 25px;
+    }
+
+    .coffee__image {
+        max-width: 200px;
+        padding: 20px;
+    }
+
+    .card__price {
+        font-size: 24px;
+    }
+
+    .card__title {
+        font-size: 20px;
+    }
+
+    .card__button {
+        padding: 10px 22px;
+        font-size: 13px;
+    }
+
+    /* Features */
+    .features {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 35px;
+        margin-top: 50px;
+    }
+
+    .features__title {
+        font-size: 26px;
+        margin-bottom: 40px;
+    }
+}
+
+/* Планшеты средние (до 900px) */
+@media (max-width: 900px) {
+
+    /* Giftset */
+    .giftset {
+        padding: 60px 20px;
+    }
+
+    .giftset__title {
+        font-size: 26px;
+        margin-bottom: 40px;
+    }
+
+    .giftset__card {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        padding: 0;
+        max-width: 600px;
+    }
+
+    .giftset__image {
+        height: 300px;
+    }
+
+    .giftset__content {
+        padding: 30px 30px;
+    }
+
+    .giftset__meta {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .giftset__steps {
+        flex-direction: row;
+        justify-content: center;
+        padding: 20px 0;
+    }
+
+    .giftset__steps li {
+        padding: 15px 30px;
+    }
+
+    .giftset__steps li.active {
+        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.05);
+    }
+
+    /* Combo */
+    .combo {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        column-gap: 1.5em;
+        row-gap: 1.5em;
+        padding: 0 20px;
+    }
+
+    .combo__title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .combo__item {
+        max-width: 100%;
+        padding: 1.2em;
+        grid-template-rows: 250px auto minmax(70px, auto) auto;
+    }
+
+    .combo__text-container {
+        padding: 0 0.3em;
+        gap: 6px;
+    }
+
+    .combo__card__price {
+        font-size: 22px;
+        height: 38px;
+    }
+
+    .combo__card__title {
+        font-size: 22px;
+        min-height: 55px;
+    }
+
+    .combo__card__buttons {
+        padding: 0.8em 0.3em 0;
+    }
+}
+
+/* Планшеты малые (до 768px) */
+@media (max-width: 768px) {
+
+    /* Header */
+    .header {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .header__left {
+        padding: 30px 20px;
+        padding-left: 20px;
+        min-height: auto;
+    }
+
+    .header__title {
+        font-size: 48px;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .header__logo {
+        width: 100px;
+        margin-bottom: 20px;
+    }
+
+    .header__right {
+        grid-template-columns: 1fr;
+        grid-template-rows: 300px auto;
+    }
+
+    .header__image {
+        height: 300px;
+    }
+
+    .header__nav {
+        padding: 40px 20px;
+    }
+
+    .header__nav h2 {
+        font-size: 14px;
+    }
+
+    .header__nav ul {
+        gap: 20px;
+    }
+
+    .header__nav a {
+        font-size: 14px;
+    }
+
+    /* Coffee */
+    .coffee {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin: 40px auto;
+        padding: 10px;
+    }
+
+    .coffee__title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .coffee__item {
+        grid-template-columns: 180px 1fr;
+        gap: 20px;
+    }
+
+    .coffee__image {
+        max-width: 180px;
+        padding: 20px;
+    }
+
+    .card__price {
+        font-size: 22px;
+    }
+
+    .card__title {
+        font-size: 18px;
+    }
+
+    .card__description {
+        font-size: 13px;
+    }
+
+    .card__button {
+        padding: 9px 18px;
+        font-size: 12px;
+    }
+
+    .coffee__text-container>div {
+        gap: 10px;
+    }
+
+    /* Features */
+    .features {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .features__title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .features__image {
+        margin-bottom: 30px;
+    }
+
+    /* Giftset */
+    .giftset {
+        padding: 40px 15px;
+    }
+
+    .giftset__title {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    .giftset__card {
+        border-radius: 16px;
+    }
+
+    .giftset__content {
+        padding: 25px 20px;
+    }
+
+    .giftset__price {
+        font-size: 18px;
+    }
+
+    .giftset__name {
+        font-size: 20px;
+    }
+
+    .giftset__desc {
+        font-size: 13px;
+    }
+
+    .giftset__buttons {
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+
+    .giftset__buy {
+        width: 100%;
+    }
+
+    /* Combo */
+    .combo {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5em;
+        padding: 0 15px;
+    }
+
+    .combo__card__buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .combo__card__button {
+        width: 100%;
+        padding: 12px 20px;
+    }
+}
+
+/* Мобильные устройства (до 480px) */
+@media (max-width: 480px) {
+
+    /* Header */
+    .header__title {
+        font-size: 36px;
+    }
+
+    .header__logo {
+        width: 80px;
+    }
+
+    .header__right {
+        grid-template-rows: 250px auto;
+    }
+
+    .header__image {
+        height: 250px;
+    }
+
+    .header__nav {
+        padding: 30px 20px;
+    }
+
+    .header__nav ul {
+        gap: 15px;
+    }
+
+    /* Coffee */
+    .coffee {
+        gap: 30px;
+        margin: 30px auto;
+        padding: 5px;
+    }
+
+    .coffee__title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .coffee__item {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        gap: 20px;
+    }
+
+    .coffee__image {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+        padding: 25px;
+    }
+
+    .coffee__text-container {
+        text-align: center;
+    }
+
+    .card__price {
+        font-size: 20px;
+    }
+
+    .card__title {
+        font-size: 18px;
+    }
+
+    .card__button {
+        flex: 1;
+        padding: 10px 16px;
+    }
+
+    .coffee__text-container>div {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    /* Features */
+    .features {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        margin-top: 30px;
+        padding: 0 10px;
+    }
+
+    .features__title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .features__image {
+        margin-bottom: 20px;
+        max-width: 150px;
+    }
+
+    /* Giftset */
+    .giftset {
+        padding: 30px 10px;
+    }
+
+    .giftset__title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .giftset__image {
+        height: 250px;
+    }
+
+    .giftset__content {
+        padding: 20px 15px;
+    }
+
+    .giftset__price {
+        font-size: 16px;
+        margin-bottom: 12px;
+    }
+
+    .giftset__name {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .giftset__desc {
+        font-size: 12px;
+        margin-bottom: 20px;
+    }
+
+    .giftset__meta {
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .giftset__icon {
+        width: 24px;
+        height: 24px;
+    }
+
+    .giftset__meta-title {
+        font-size: 12px;
+    }
+
+    .giftset__meta-value {
+        font-size: 14px;
+    }
+
+    .giftset__steps {
+        padding: 15px 0;
+    }
+
+    .giftset__steps li {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+
+    .giftset__buy {
+        padding: 12px 20px;
+        font-size: 13px;
+    }
+
+    /* Combo */
+    .combo {
+        grid-template-columns: 1fr;
+        gap: 1.5em;
+        padding: 0 10px;
+    }
+
+    .combo__title {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .combo__item {
+        padding: 1em;
+        grid-template-rows: 220px auto minmax(65px, auto) auto;
+    }
+
+    .combo__text-container {
+        padding: 0 0.2em;
+    }
+
+    .combo__card__price {
+        font-size: 20px;
+        gap: 10px;
+        height: 36px;
+    }
+
+    .combo__card__sale {
+        font-size: 16px;
+    }
+
+    .combo__card__title {
+        font-size: 20px;
+        min-height: 50px;
+    }
+
+    .combo__card__description {
+        font-size: 12px;
+    }
+
+    .combo__card__buttons {
+        padding: 0.8em 0.2em 0;
+        gap: 10px;
+    }
+
+    .combo__card__button {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
 }
