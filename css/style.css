@@ -1085,12 +1085,10 @@
 
 /* Дополнительные стили для светлой темы и адаптива */
 
-/* Светлый фон для всех секций */
 .section {
   background-color: #ffffff;
 }
 
-/* Улучшенные заголовки для мобильных */
 .features__title h2,
 .coffee__title h2,
 .combo__title h2,
@@ -1113,14 +1111,12 @@
   letter-spacing: 1px;
 }
 
-/* Контейнер с ограничением ширины */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
 
-/* Адаптивная сетка для features */
 .features {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1142,7 +1138,6 @@
   }
 }
 
-/* Улучшенные карточки кофе */
 .coffee__item {
   background: #f8f9fa;
   border-radius: 16px;
@@ -1155,7 +1150,6 @@
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* Адаптивные кнопки */
 .card__button,
 .giftset__buy,
 .combo__card__button {
@@ -1180,7 +1174,6 @@
   box-shadow: 0 5px 15px rgba(199, 161, 122, 0.3);
 }
 
-/* Мобильная навигация скрыта по умолчанию */
 @media (min-width: 769px) {
   .menu-toggle {
     display: none !important;
@@ -1191,7 +1184,6 @@
   }
 }
 
-/* Десктопная навигация */
 .nav__list {
   display: flex;
   gap: 25px;
@@ -1214,4 +1206,119 @@
 .nav__link.active {
   color: #c7a17a;
   background: rgba(199, 161, 122, 0.1);
+}
+
+@media (min-width: 769px) {
+    .nav {
+        display: flex !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        position: static !important;
+        width: auto !important;
+        height: auto !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        right: 0 !important;
+        transition: none !important;
+        overflow: visible !important;
+    }
+    
+    .nav__list {
+        display: flex !important;
+        list-style: none;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+        flex-direction: row !important;
+    }
+    
+    .nav__item {
+        width: auto !important;
+    }
+    
+    .nav__link {
+        color: #333;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 16px;
+        padding: 10px 18px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        display: inline-block;
+        border-bottom: none !important;
+        text-align: center;
+        min-height: 44px;
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .nav__link:hover,
+    .nav__link.active {
+        background: rgba(199, 161, 122, 0.1);
+        color: #c7a17a;
+        padding-left: 18px !important;
+    }
+    
+    .menu-toggle {
+        display: none !important;
+    }
+    
+    .nav-overlay {
+        display: none !important;
+    }
+}
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.header__brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 1002;
+}
+
+.header__logo {
+    width: 80px;
+    height: auto;
+}
+
+.header__title {
+    font-size: 24px;
+    font-weight: 900;
+    color: #415167;
+    line-height: 1.2;
+    margin: 0;
+}
+
+.header__title--background {
+    background: #c7a17a;
+    color: #fff;
+    padding: 4px 10px;
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.header__left,
+.header__right,
+.header__image,
+.header__nav {
+    display: none !important;
 }

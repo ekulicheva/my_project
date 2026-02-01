@@ -1,59 +1,84 @@
-// Адаптивное меню для мобильных устройств
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Получаем элементы
+    console.log('DOM загружен, инициализируем меню...');
+    
     const menuToggle = document.getElementById('menuToggle');
     const mainNav = document.getElementById('mainNav');
     const scrollTopButton = document.getElementById('scrollTop');
     
-    // Создаем оверлей для меню
+    console.log('Элементы найдены:', { menuToggle, mainNav, scrollTopButton });
+    
     const navOverlay = document.createElement('div');
     navOverlay.className = 'nav-overlay';
     document.body.appendChild(navOverlay);
+    console.log('Оверлей создан');
+
+    if (window.innerWidth <= 768) {
+        mainNav.classList.add('mobile-nav');
+    }
     
-    // Функция открытия/закрытия меню
     function toggleMenu() {
-        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        console.log('toggleMenu вызвана');
         
-        // Переключаем состояния
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+
         menuToggle.classList.toggle('active');
         menuToggle.setAttribute('aria-expanded', !isExpanded);
         mainNav.classList.toggle('active');
         navOverlay.classList.toggle('active');
         
-        // Блокируем скролл при открытом меню
         if (mainNav.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
             document.body.classList.add('menu-open');
+            console.log('Меню открыто');
         } else {
             document.body.style.overflow = '';
             document.body.classList.remove('menu-open');
+            console.log('Меню закрыто');
         }
     }
     
-    // Обработчики событий
-    menuToggle.addEventListener('click', toggleMenu);
-    navOverlay.addEventListener('click', toggleMenu);
+    menuToggle.addEventListener('click', function(e) {
+        console.log('Клик по бургеру');
+        e.stopPropagation();
+        toggleMenu();
+    });
     
-    // Закрытие меню при клике на ссылку (только на мобильных)
+    navOverlay.addEventListener('click', function(e) {
+        console.log('Клик по оверлею');
+        e.stopPropagation();
+        toggleMenu();
+    });
+
     const navLinks = document.querySelectorAll('.nav__link');
     navLinks.forEach(link => {
-        link.addEventListener('click', () => {
+        link.addEventListener('click', function(e) {
             if (window.innerWidth <= 768) {
+                console.log('Клик по ссылке меню на мобильном');
                 toggleMenu();
             }
         });
     });
-    
-    // Закрытие меню при изменении размера окна
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768 && mainNav.classList.contains('active')) {
-            toggleMenu();
+
+    window.addEventListener('resize', function() {
+        console.log('Размер окна изменен:', window.innerWidth);
+        
+        if (window.innerWidth <= 768) {
+            mainNav.classList.add('mobile-nav');
+            mainNav.classList.remove('active');
+            menuToggle.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            document.body.classList.remove('menu-open');
+        } else {
+            mainNav.classList.remove('mobile-nav', 'active');
+            menuToggle.classList.remove('active');
+            navOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            document.body.classList.remove('menu-open');
         }
     });
-    
-    // Кнопка "Наверх"
-    window.addEventListener('scroll', () => {
+
+    window.addEventListener('scroll', function() {
         if (window.scrollY > 300) {
             scrollTopButton.classList.add('visible');
         } else {
@@ -61,10 +86,12 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    scrollTopButton.addEventListener('click', () => {
+    scrollTopButton.addEventListener('click', function() {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
+    
+    console.log('Меню инициализировано');
 });

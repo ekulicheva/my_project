@@ -16,14 +16,11 @@
 </head>
 
 <body>
-  <!-- Оверлей для меню (создается в JS) -->
   <div class="nav-overlay"></div>
   
-  <!-- Header с адаптивным меню -->
   <header class="header">
     <div class="container">
       <div class="header__inner">
-        <!-- Логотип и заголовок -->
         <div class="header__brand">
           <img class="header__logo" src="assets/fonts/LOGO.png" alt="Логотип Coffee Shop">
           <h1 class="header__title">
@@ -33,21 +30,16 @@
           </h1>
         </div>
         
-        <!-- Баннер только для десктопа -->
-        <img class="header__banner desktop-only" src="assets/img/Баннер.png" alt="Кофейный баннер">
-        
-        <!-- Бургер-кнопка для мобильных -->
         <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
           <span class="menu-toggle_line"></span>
           <span class="menu-toggle_line"></span>
           <span class="menu-toggle_line"></span>
         </button>
 
-        <!-- Основная навигация -->
         <nav class="nav" id="mainNav">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="#section-features" class="nav__link active">Кофе</a>
+              <a href="#section-features" class="nav__link">Кофе</a>
             </li>
             <li class="nav__item">
               <a href="#section-coffee" class="nav__link">Фильтр кофе</a>
@@ -68,7 +60,6 @@
   </header>
 
   <main>
-    <!-- Раздел "Особенности" -->
     <section class="section" id="section-features">
       <div class="features__title">
         <h3>Твой персональный кофе</h3>
@@ -108,7 +99,6 @@
       </div>
     </section>
 
-    <!-- Раздел "Кофе" -->
     <section class="section" id="section-coffee">
       <div class="coffee__title">
         <h3>Выбери свой любимый</h3>
@@ -168,7 +158,6 @@
       </div>
     </section>
 
-    <!-- Раздел "Подарочные наборы" -->
     <section class="section" id="section-gifts">
       <div class="giftset__title">
         <h3>Лучший подарок для лучшего друга</h3>
@@ -221,7 +210,6 @@
       </div>
     </section>
 
-    <!-- Раздел "Комбо" -->
     <section class="section" id="section-combo">
       <div class="combo__title">
         <h3>Твой персональный кофе</h3>
@@ -278,7 +266,6 @@
       </div>
     </section>
 
-    <!-- Раздел "Контакты" (добавлен для навигации) -->
     <section class="section" id="contacts">
       <div class="container">
         <h2>Контакты</h2>
@@ -291,10 +278,8 @@
     <p class="footer">&copy; Revo Coffee Vietnam &mdash; 2025</p>
   </footer>
 
-  <!-- Кнопка "Наверх" -->
   <button class="scroll-top" id="scrollTop" aria-label="Наверх">↑</button>
 
-  <!-- Подключение скриптов -->
   <script src="scripts/menu.js"></script>
 </body>
 
