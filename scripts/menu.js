@@ -1,84 +1,58 @@
+
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM загружен, инициализируем меню...');
-    
+    // Получаем элементы
     const menuToggle = document.getElementById('menuToggle');
     const mainNav = document.getElementById('mainNav');
     const scrollTopButton = document.getElementById('scrollTop');
     
-    console.log('Элементы найдены:', { menuToggle, mainNav, scrollTopButton });
-    
+    // Создаем оверлей для меню
     const navOverlay = document.createElement('div');
     navOverlay.className = 'nav-overlay';
     document.body.appendChild(navOverlay);
-    console.log('Оверлей создан');
-
-    if (window.innerWidth <= 768) {
-        mainNav.classList.add('mobile-nav');
-    }
     
+    // Функция открытия/закрытия меню
     function toggleMenu() {
-        console.log('toggleMenu вызвана');
-        
         const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-
+        
+        // Переключаем состояния
         menuToggle.classList.toggle('active');
         menuToggle.setAttribute('aria-expanded', !isExpanded);
         mainNav.classList.toggle('active');
         navOverlay.classList.toggle('active');
         
+        // Блокируем скролл при открытом меню
         if (mainNav.classList.contains('active')) {
             document.body.style.overflow = 'hidden';
             document.body.classList.add('menu-open');
-            console.log('Меню открыто');
         } else {
             document.body.style.overflow = '';
             document.body.classList.remove('menu-open');
-            console.log('Меню закрыто');
         }
     }
     
-    menuToggle.addEventListener('click', function(e) {
-        console.log('Клик по бургеру');
-        e.stopPropagation();
-        toggleMenu();
-    });
+    // Обработчики событий
+    menuToggle.addEventListener('click', toggleMenu);
+    navOverlay.addEventListener('click', toggleMenu);
     
-    navOverlay.addEventListener('click', function(e) {
-        console.log('Клик по оверлею');
-        e.stopPropagation();
-        toggleMenu();
-    });
-
+    // Закрытие меню при клике на ссылку (только на мобильных)
     const navLinks = document.querySelectorAll('.nav__link');
     navLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', () => {
             if (window.innerWidth <= 768) {
-                console.log('Клик по ссылке меню на мобильном');
                 toggleMenu();
             }
         });
     });
-
-    window.addEventListener('resize', function() {
-        console.log('Размер окна изменен:', window.innerWidth);
-        
-        if (window.innerWidth <= 768) {
-            mainNav.classList.add('mobile-nav');
-            mainNav.classList.remove('active');
-            menuToggle.classList.remove('active');
-            navOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-            document.body.classList.remove('menu-open');
-        } else {
-            mainNav.classList.remove('mobile-nav', 'active');
-            menuToggle.classList.remove('active');
-            navOverlay.classList.remove('active');
-            document.body.style.overflow = '';
-            document.body.classList.remove('menu-open');
+    
+    // Закрытие меню при изменении размера окна
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && mainNav.classList.contains('active')) {
+            toggleMenu();
         }
     });
-
-    window.addEventListener('scroll', function() {
+    
+    // Кнопка "Наверх"
+    window.addEventListener('scroll', () => {
         if (window.scrollY > 300) {
             scrollTopButton.classList.add('visible');
         } else {
@@ -86,12 +60,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    scrollTopButton.addEventListener('click', function() {
+    scrollTopButton.addEventListener('click', () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     });
-    
-    console.log('Меню инициализировано');
 });
