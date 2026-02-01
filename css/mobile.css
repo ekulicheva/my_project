@@ -1,65 +1,63 @@
-/* Адаптивное меню для планшетов и мобильных */
+/* Мобильные стили для адаптивного меню */
+
+/* Планшет (1024px и меньше) */
 @media (max-width: 1024px) {
   .container {
     padding: 0 15px;
   }
 
   .header__inner {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 15px 0;
   }
 
-  .header__right img.header__image {
+  .header__banner.desktop-only {
     display: none;
   }
 
-  .nav ul {
-    display: none;
-    flex-direction: column;
-    gap: 0;
-    position: fixed;
-    top: 0;
-    right: -100%;
-    width: 280px;
-    height: 100vh;
-    background: white;
-    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
-    padding: 80px 30px 30px;
-    transition: right 0.4s ease;
-    z-index: 1000;
-    overflow-y: auto;
+  .header__brand {
+    flex: 1;
   }
 
-  .nav.active ul {
+  /* Базовые стили для навигации на планшетах */
+  .nav__list {
     display: flex;
-    right: 0;
+    list-style: none;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
-  .nav li {
-    width: 100%;
-  }
-
-  .nav_link {
-    display: block;
-    width: 100%;
-    padding: 15px 0;
-    font-size: 18px;
-    border-bottom: 1px solid #eee;
-    color: #333;
+  .nav__link {
     text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    min-height: 44px;
+    min-width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
-  .nav_link:hover,
-  .nav_link.active {
-    background: transparent;
+  .nav__link:hover,
+  .nav__link.active {
+    background: #f0f0f0;
     color: #2c5530;
-    padding-left: 10px;
   }
 
   .menu-toggle {
-    display: flex;
+    display: none; /* На планшетах показываем обычное меню */
+  }
+}
+
+/* Планшет и мобильные (768px и меньше) */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex; /* Показываем гамбургер */
     flex-direction: column;
     justify-content: space-between;
     width: 44px;
@@ -69,6 +67,7 @@
     padding: 12px 10px;
     cursor: pointer;
     z-index: 1001;
+    position: relative;
   }
 
   .menu-toggle_line {
@@ -77,8 +76,10 @@
     background: #333;
     border-radius: 2px;
     transition: all 0.3s ease;
+    display: block;
   }
 
+  /* Состояние открытого меню */
   .menu-toggle.active .menu-toggle_line:nth-child(1) {
     transform: rotate(45deg) translate(6px, 6px);
   }
@@ -91,7 +92,57 @@
     transform: rotate(-45deg) translate(6px, -6px);
   }
 
-  /* Оверлей для меню */
+  /* Основная навигация (скрыта по умолчанию) */
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 300px;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+    padding: 80px 30px 30px;
+    transition: right 0.4s ease;
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  .nav.active {
+    right: 0;
+  }
+
+  .nav__list {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav__item {
+    width: 100%;
+  }
+
+  .nav__link {
+    display: block;
+    width: 100%;
+    padding: 15px 0;
+    font-size: 18px; /* Увеличиваем для мобильных */
+    border-bottom: 1px solid #eee;
+    text-align: left;
+    padding-left: 0;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav__link:hover,
+  .nav__link.active {
+    background: transparent;
+    color: #2c5530;
+    padding-left: 10px;
+  }
+
+  /* Затемнение фона при открытом меню */
   .nav-overlay {
     display: none;
     position: fixed;
@@ -106,9 +157,48 @@
   .nav-overlay.active {
     display: block;
   }
+
+  /* Блокировка скролла при открытом меню */
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  /* Увеличиваем touch-зоны для кнопок */
+  .card__button,
+  .giftset__buy,
+  .combo__card__button {
+    min-width: 120px;
+    min-height: 44px;
+  }
 }
 
-/* Кнопка "Наверх" */
+/* Мобильные (480px и меньше) */
+@media (max-width: 480px) {
+  .nav {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .header__logo {
+    width: 100px;
+    height: auto;
+  }
+
+  body {
+    font-size: 17px; /* iOS рекомендация */
+  }
+
+  /* Адаптивные отступы для контента */
+  .section {
+    padding: 30px 8px 40px;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+}
+
+/* Стили для кнопки "Наверх" */
 .scroll-top {
   position: fixed;
   bottom: 30px;
@@ -129,6 +219,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 56px;
+  min-height: 56px;
 }
 
 .scroll-top.visible {
@@ -145,6 +237,7 @@
   transform: scale(0.95);
 }
 
+/* Для мобильных устройств */
 @media (max-width: 768px) {
   .scroll-top {
     width: 52px;
