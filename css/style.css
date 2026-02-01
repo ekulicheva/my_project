@@ -1527,21 +1527,3 @@
     width: 100%;
     box-sizing: border-box;
 }
-
-/* 7. Фиксируем header при скролле */
-.header {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    background: white;
-    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-    padding: 0;
-}
-
-/* 8. Убираем старые стили header, которые ломают верстку */
-.header__left,
-.header__right,
-.header__image,
-.header__nav {
-    display: none !important;
-}
