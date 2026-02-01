@@ -17,45 +17,82 @@
 
 <body>
     <header class="header">
-        <div class="header__container">
-            <div class="header__top">
-                <img class="header__logo" src="assets/fonts/LOGO.png" alt="logo">
-                
-                <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
-                    <span class="menu-toggle__line"></span>
-                    <span class="menu-toggle__line"></span>
-                    <span class="menu-toggle__line"></span>
-                </button>
-            </div>
-
-            <div class="header__left">
-                <h1 class="header__title">
-                    Твой<br>
-                    <span class="header__title--background">персональный</span><br>
-                    кофе
-                </h1>
+        <!-- Mobile header -->
+        <div class="header__mobile">
+            <div class="container">
+                <div class="header__mobile-top">
+                    <img class="header__logo" src="assets/fonts/LOGO.png" alt="logo">
+                    
+                    <!-- Гамбургер-кнопка (mobile) -->
+                    <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню" aria-expanded="false">
+                        <span class="menu-toggle__line"></span>
+                        <span class="menu-toggle__line"></span>
+                        <span class="menu-toggle__line"></span>
+                    </button>
+                </div>
             </div>
             
-            <div class="header__right">
-                <img class="header__image" src="assets/img/Баннер.png" alt="Кофе баннер">
-                
+            <!-- Mobile banner -->
+            <div class="header__banner-mobile" style="background-image: url('assets/img/Баннер.png');">
+                <div class="container">
+                    <h1 class="header__title">
+                        Твой<br>
+                        <span class="header__title--background">персональный</span><br>
+                        кофе
+                    </h1>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Desktop header -->
+        <div class="header__desktop">
+            <div class="header__left">
+                <img class="header__logo" src="assets/fonts/LOGO.png" alt="logo">
+                <h1 class="header__title">
+                    YOUR<br>
+                    <span class="header__title--highlight">PERSONALIZED</span><br>
+                    COFFEE
+                </h1>
+                <!-- Кнопка Play (опционально) -->
+                <button class="header__play-btn" aria-label="Воспроизвести видео">
+                    <svg width="60" height="60" viewBox="0 0 60 60" fill="none">
+                        <circle cx="30" cy="30" r="30" fill="white"/>
+                        <path d="M24 18L42 30L24 42V18Z" fill="#c9b491"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="header__right" style="background-image: url('assets/img/Баннер.png');">
+                <!-- Навигационная панель справа -->
                 <nav class="header__nav" id="mainNav">
+                    <div class="header__cart">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <circle cx="9" cy="21" r="1"/>
+                            <circle cx="20" cy="21" r="1"/>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                        </svg>
+                        <span class="header__cart-count">2</span>
+                    </div>
+                    
                     <h2 class="visually-hidden">Главная навигация</h2>
                     <ul class="nav__list">
                         <li class="nav__item">
-                            <a href="#section-features" class="nav__link">Кофе</a>
+                            <a href="#section-features" class="nav__link">TRANG CHỦ</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#section-coffee" class="nav__link">Фильтр кофе</a>
+                            <a href="#section-coffee" class="nav__link">COFFEE</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#section-combo" class="nav__link">Комбо</a>
+                            <a href="#section-combo" class="nav__link">PHIM MÀ MẦU</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#section-gifts" class="nav__link">Подарочные наборы</a>
+                            <a href="#section-combo" class="nav__link">COMBO PHIN PHÊ</a>
                         </li>
                         <li class="nav__item">
-                            <a href="#contacts" class="nav__link">Контакты</a>
+                            <a href="#section-gifts" class="nav__link">GIFTSET</a>
+                        </li>
+                        <li class="nav__item">
+                            <a href="#contacts" class="nav__link">LIÊN HỆ</a>
                         </li>
                     </ul>
                 </nav>
@@ -277,10 +314,12 @@
         <p class="footer">&copy; Revo Coffee Vietnam&nbsp;&mdash; 2025</p>
     </footer>
 
+    <!-- Кнопка "Наверх" -->
     <button class="scroll-top" id="scrollTop" aria-label="Наверх">
-        
+        ↑
     </button>
 
+    <!-- Подключение JavaScript -->
     <script src="scripts/menu.js"></script>
 </body>
 

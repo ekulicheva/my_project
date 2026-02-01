@@ -1,19 +1,31 @@
+// ========================================
+// МОБИЛЬНОЕ МЕНЮ И ИНТЕРАКТИВНОСТЬ
+// ========================================
+
+// Получаем элементы
 const menuToggle = document.getElementById('menuToggle');
 const mainNav = document.getElementById('mainNav');
 const body = document.body;
 
+// Создаем оверлей для затемнения фона
 const navOverlay = document.createElement('div');
 navOverlay.className = 'nav-overlay';
 document.body.appendChild(navOverlay);
 
+// ========================================
+// ФУНКЦИЯ ОТКРЫТИЯ/ЗАКРЫТИЯ МЕНЮ
+// ========================================
+
 function toggleMenu() {
     const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-
+    
+    // Переключаем состояния
     menuToggle.classList.toggle('active');
     menuToggle.setAttribute('aria-expanded', !isExpanded);
     mainNav.classList.toggle('active');
     navOverlay.classList.toggle('active');
-
+    
+    // Блокируем скролл при открытом меню
     if (mainNav.classList.contains('active')) {
         body.style.overflow = 'hidden';
         body.classList.add('menu-open');
@@ -23,10 +35,17 @@ function toggleMenu() {
     }
 }
 
+// ========================================
+// ОБРАБОТЧИКИ СОБЫТИЙ ДЛЯ МЕНЮ
+// ========================================
+
+// Клик по кнопке гамбургера
 menuToggle.addEventListener('click', toggleMenu);
 
+// Клик по затемнённому фону
 navOverlay.addEventListener('click', toggleMenu);
 
+// Закрытие меню при клике на ссылку (только на мобильных)
 const navLinks = document.querySelectorAll('.nav__link');
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
@@ -36,12 +55,14 @@ navLinks.forEach(link => {
     });
 });
 
+// Закрытие меню при нажатии Escape
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && mainNav.classList.contains('active')) {
         toggleMenu();
     }
 });
 
+// Закрытие меню при изменении размера окна (если перешли на десктоп)
 let resizeTimer;
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
@@ -52,17 +73,22 @@ window.addEventListener('resize', () => {
     }, 250);
 });
 
+// ========================================
+// ПЛАВНАЯ ПРОКРУТКА К ЯКОРЯМ
+// ========================================
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         const href = this.getAttribute('href');
-
+        
+        // Игнорируем пустые якоря
         if (href === '#' || href === '') return;
         
         e.preventDefault();
         
         const target = document.querySelector(href);
         if (target) {
-            const headerOffset = 70; 
+            const headerOffset = 70; // Отступ от шапки
             const elementPosition = target.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -74,8 +100,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
+// ========================================
+// КНОПКА "НАВЕРХ"
+// ========================================
+
 const scrollTopButton = document.getElementById('scrollTop');
 
+// Показываем/скрываем кнопку при прокрутке
 let scrollTimer;
 window.addEventListener('scroll', () => {
     clearTimeout(scrollTimer);
@@ -88,21 +119,28 @@ window.addEventListener('scroll', () => {
     }, 100);
 }, { passive: true });
 
+// Прокрутка к началу страницы
 scrollTopButton.addEventListener('click', () => {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
-
+    
+    // Даём фокус на первый элемент для доступности
     setTimeout(() => {
         document.querySelector('h1').focus();
     }, 500);
 });
 
+// ========================================
+// УЛУЧШЕНИЕ ВИЗУАЛЬНОГО ФИДБЕКА ДЛЯ КНОПОК
+// ========================================
+
+// Добавляем визуальный фидбек при касании для всех кнопок
 const allButtons = document.querySelectorAll('button, .card__button, .combo__card__button, .giftset__buy');
 
 allButtons.forEach(button => {
-
+    // Эффект "рипл" при нажатии (Material Design)
     button.addEventListener('click', function(e) {
         const ripple = document.createElement('span');
         const rect = this.getBoundingClientRect();
@@ -123,6 +161,7 @@ allButtons.forEach(button => {
     });
 });
 
+// CSS для эффекта ripple (добавляем динамически)
 const rippleStyle = document.createElement('style');
 rippleStyle.textContent = `
     button, .card__button, .combo__card__button, .giftset__buy {
@@ -148,6 +187,11 @@ rippleStyle.textContent = `
 `;
 document.head.appendChild(rippleStyle);
 
+// ========================================
+// АКТИВНАЯ ССЫЛКА В НАВИГАЦИИ
+// ========================================
+
+// Подсветка активной секции при прокрутке
 const sections = document.querySelectorAll('section[id]');
 const navItems = document.querySelectorAll('.nav__link');
 
@@ -170,14 +214,21 @@ function highlightNavigation() {
     });
 }
 
+// Вызываем при прокрутке (с throttle для производительности)
 let navScrollTimer;
 window.addEventListener('scroll', () => {
     clearTimeout(navScrollTimer);
     navScrollTimer = setTimeout(highlightNavigation, 100);
 }, { passive: true });
 
+// Начальная подсветка
 highlightNavigation();
 
+// ========================================
+// УЛУЧШЕНИЕ ПРОИЗВОДИТЕЛЬНОСТИ
+// ========================================
+
+// Lazy loading для изображений (если браузер не поддерживает нативно)
 if ('loading' in HTMLImageElement.prototype) {
     const images = document.querySelectorAll('img');
     images.forEach(img => {
@@ -186,6 +237,7 @@ if ('loading' in HTMLImageElement.prototype) {
         }
     });
 } else {
+    // Полифилл для старых браузеров
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -202,3 +254,19 @@ if ('loading' in HTMLImageElement.prototype) {
     const lazyImages = document.querySelectorAll('img[data-src]');
     lazyImages.forEach(img => imageObserver.observe(img));
 }
+
+// ========================================
+// ОТЛАДКА (можно удалить в продакшене)
+// ========================================
+
+// Логирование для проверки работы скриптов
+console.log('✅ Мобильное меню инициализировано');
+console.log('✅ Кнопка "Наверх" готова к работе');
+console.log('✅ Плавная прокрутка активирована');
+console.log('✅ Визуальный фидбек для кнопок подключен');
+
+// Информация о текущем viewport
+console.log(`📱 Текущая ширина экрана: ${window.innerWidth}px`);
+window.addEventListener('resize', () => {
+    console.log(`📱 Размер изменён: ${window.innerWidth}px`);
+});

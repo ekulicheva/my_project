@@ -16,70 +16,172 @@
 }
 
 /* ========================================
-   DESKTOP СТИЛИ (базовые для всех размеров)
+   DESKTOP LAYOUT
    ======================================== */
 
-/* Шапка */
-.header {
-    background: white;
+/* Скрываем мобильную версию на desktop */
+.header__mobile {
+    display: none;
 }
 
-.header__top-bar {
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header__top-inner {
+/* Desktop header */
+.header__desktop {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 15px 0;
+    min-height: 100vh;
+}
+
+/* Левая колонка - текст */
+.header__left {
+    width: 40%;
+    background: #f5f5f5;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
 }
 
 .header__logo {
-    height: 50px;
-    width: auto;
+    width: 200px;
+    height: auto;
+    margin-bottom: 80px;
 }
 
-/* Desktop навигация */
-.header__nav {
-    flex: 1;
+.header__title {
+    font-size: 64px;
+    font-weight: 900;
+    color: #3d5a6b;
+    line-height: 1.1;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+}
+
+.header__title--highlight {
+    background: #c9b491;
+    color: white;
+    padding: 8px 24px;
+    display: inline-block;
+    letter-spacing: 0;
+}
+
+/* Кнопка Play */
+.header__play-btn {
+    width: 60px;
+    height: 60px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    padding: 0;
+}
+
+.header__play-btn:hover {
+    transform: scale(1.1);
+}
+
+.header__play-btn:active {
+    transform: scale(0.95);
+}
+
+/* Правая колонка - изображение и меню */
+.header__right {
+    width: 60%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
     display: flex;
+    align-items: flex-start;
     justify-content: flex-end;
-    margin-left: 40px;
 }
 
-.nav__list {
+/* Overlay для лучшей читаемости меню */
+.header__right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(61, 90, 107, 0.95) 100%);
+}
+
+/* Навигационная панель справа */
+.header__nav {
+    width: 280px;
+    background: rgba(61, 90, 107, 0.98);
+    padding: 40px 30px;
+    position: relative;
+    z-index: 10;
+    height: 100vh;
     display: flex;
+    flex-direction: column;
+}
+
+/* Корзина */
+.header__cart {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 60px;
+    align-self: flex-end;
+}
+
+.header__cart svg {
+    width: 24px;
+    height: 24px;
+}
+
+.header__cart-count {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 20px;
+    height: 20px;
+    background: #c9b491;
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Список навигации */
+.nav__list {
     list-style: none;
-    gap: 30px;
     margin: 0;
     padding: 0;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
 
 .nav__item {
-    display: inline-block;
+    width: 100%;
 }
 
 .nav__link {
-    text-decoration: none;
-    color: #3d5a6b;
-    font-weight: 500;
-    font-size: 16px;
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: all 0.3s ease;
     display: block;
+    padding: 20px 0;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
 }
 
 .nav__link:hover,
 .nav__link.active {
-    background: rgba(201, 180, 145, 0.1);
     color: #c9b491;
+    padding-left: 15px;
+    background: rgba(201, 180, 145, 0.1);
 }
 
 /* Гамбургер скрыт на desktop */
@@ -87,52 +189,37 @@
     display: none;
 }
 
-/* Баннер с фоновым изображением */
-.header__banner {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 80px 0;
-    position: relative;
-}
-
-.header__banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(255, 255, 255, 0.1);
-}
-
-.header__title {
-    position: relative;
-    z-index: 1;
-    font-size: 48px;
-    font-weight: 900;
-    color: #3d5a6b;
-    line-height: 1.2;
-}
-
-.header__title--background {
-    background: #c9b491;
-    color: white;
-    padding: 4px 16px;
-    display: inline-block;
-}
-
 /* ========================================
    ПЛАНШЕТ (1024px и меньше)
    ======================================== */
 @media (max-width: 1024px) {
-    .container {
-        padding: 0 20px;
+    .header__left {
+        width: 45%;
+        padding: 40px;
     }
 
-    /* Адаптация секций */
-    .section {
-        padding: 40px 0;
+    .header__right {
+        width: 55%;
+    }
+
+    .header__logo {
+        width: 160px;
+        margin-bottom: 60px;
+    }
+
+    .header__title {
+        font-size: 48px;
+        margin-bottom: 40px;
+    }
+
+    .header__nav {
+        width: 240px;
+        padding: 30px 20px;
+    }
+
+    .nav__link {
+        font-size: 15px;
+        padding: 18px 0;
     }
 
     /* Сетки для карточек */
@@ -150,31 +237,22 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 25px;
     }
-
-    /* Навигация */
-    .nav__list {
-        gap: 20px;
-    }
-
-    .nav__link {
-        font-size: 15px;
-        padding: 6px 12px;
-    }
-
-    /* Баннер */
-    .header__banner {
-        padding: 60px 0;
-    }
-
-    .header__title {
-        font-size: 36px;
-    }
 }
 
 /* ========================================
    ПЛАНШЕТ И МОБИЛЬНЫЕ (768px и меньше)
    ======================================== */
 @media (max-width: 768px) {
+    /* Показываем мобильную версию */
+    .header__mobile {
+        display: block;
+    }
+
+    /* Скрываем desktop версию */
+    .header__desktop {
+        display: none;
+    }
+
     /* Базовый размер шрифта - Material Design рекомендация */
     body {
         font-size: 16px;
@@ -203,24 +281,59 @@
     }
 
     /* ========================================
-       ШАПКА И НАВИГАЦИЯ
+       МОБИЛЬНАЯ ШАПКА
        ======================================== */
     
-    .header__top-inner {
+    .header__mobile-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         padding: 15px 0;
+        background: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 
     .header__logo {
         height: 40px;
+        width: auto;
+        margin: 0;
     }
 
     /* Баннер */
-    .header__banner {
+    .header__banner-mobile {
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
         padding: 50px 0;
+        position: relative;
+    }
+
+    .header__banner-mobile::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.1);
     }
 
     .header__title {
+        position: relative;
+        z-index: 1;
         font-size: 28px;
+        line-height: 1.3;
+        margin: 0;
+    }
+
+    .header__title--background {
+        background: #c9b491;
+        color: white;
+        padding: 4px 12px;
+        display: inline-block;
     }
 
     /* ========================================
@@ -231,7 +344,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        width: 44px;  /* Минимум для touch по HIG */
+        width: 44px;
         height: 44px;
         background: transparent;
         border: none;
@@ -272,7 +385,7 @@
     }
 
     /* ========================================
-       БОКОВОЕ МЕНЮ
+       БОКОВОЕ МЕНЮ (MOBILE)
        ======================================== */
     
     .header__nav {
@@ -287,20 +400,21 @@
         transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1000;
         overflow-y: auto;
-        margin: 0;
     }
 
     .header__nav.active {
         left: 0;
     }
 
+    /* Скрываем корзину в мобильном меню */
+    .header__cart {
+        display: none;
+    }
+
     .nav__list {
         display: flex;
         flex-direction: column;
         gap: 0;
-        list-style: none;
-        margin: 0;
-        padding: 0;
     }
 
     .nav__item {
@@ -311,7 +425,7 @@
         display: block;
         width: 100%;
         padding: 18px 0;
-        font-size: 18px;
+        font-size: 16px;
         font-weight: 500;
         color: white;
         text-decoration: none;
@@ -684,6 +798,10 @@
        ЗАГОЛОВКИ СЕКЦИЙ
        ======================================== */
     
+    .section {
+        padding: 40px 0;
+    }
+
     .features__title,
     .coffee__title,
     .combo__title,
@@ -762,14 +880,14 @@
         font-size: 24px;
     }
 
-    .header__banner {
+    .header__banner-mobile {
         padding: 40px 0;
     }
 
     /* Увеличенные touch-зоны для маленьких экранов */
     .nav__link {
         padding: 20px 0;
-        font-size: 19px;
+        font-size: 18px;
     }
 
     /* Карточки - вертикальный layout на маленьких экранах */
@@ -897,19 +1015,17 @@
    ======================================== */
 
 /* Увеличение контрастности для ссылок */
-@media (max-width: 768px) {
-    a:focus,
-    button:focus {
-        outline: 2px solid #c9b491;
-        outline-offset: 2px;
-    }
+a:focus,
+button:focus {
+    outline: 2px solid #c9b491;
+    outline-offset: 2px;
+}
 
-    /* Улучшенная видимость при фокусе с клавиатуры */
-    a:focus-visible,
-    button:focus-visible {
-        outline: 3px solid #c9b491;
-        outline-offset: 3px;
-    }
+/* Улучшенная видимость при фокусе с клавиатуры */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #c9b491;
+    outline-offset: 3px;
 }
 
 /* Запрет прокрутки при открытом меню */
