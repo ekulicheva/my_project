@@ -1,6 +1,50 @@
 @import "./css/reset.css";
 @import "./css/style.css";
 
+/* Светлая тема по умолчанию */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #333333;
+  --primary-color: #c7a17a;
+  --secondary-color: #f8f9fa;
+  --accent-color: #2d415b;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Nunito', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Плавный скролл */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Убираем отступы у заголовков */
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  line-height: 1.3;
+}
+
+/* Адаптивные отступы */
+.section {
+  padding: 80px 20px;
+}
+
+@media (max-width: 768px) {
+  .section {
+    padding: 50px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 40px 10px;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;

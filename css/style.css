@@ -1152,3 +1152,135 @@ button {
   top: 0;
   z-index: 1000;
 }
+/* Дополнительные стили для светлой темы и адаптива */
+
+/* Светлый фон для всех секций */
+.section {
+  background-color: #ffffff;
+}
+
+/* Улучшенные заголовки для мобильных */
+.features__title h2,
+.coffee__title h2,
+.combo__title h2,
+.giftset__title h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2d415b;
+  margin-bottom: 15px;
+}
+
+.features__title h3,
+.coffee__title h3,
+.combo__title h3,
+.giftset__title h3 {
+  font-size: 18px;
+  color: #c7a17a;
+  font-weight: 500;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Контейнер с ограничением ширины */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Адаптивная сетка для features */
+.features {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+
+@media (max-width: 1024px) {
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .features {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* Улучшенные карточки кофе */
+.coffee__item {
+  background: #f8f9fa;
+  border-radius: 16px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.coffee__item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* Адаптивные кнопки */
+.card__button,
+.giftset__buy,
+.combo__card__button {
+  background: #c7a17a;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.card__button:hover,
+.giftset__buy:hover,
+.combo__card__button:hover {
+  background: #b08968;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(199, 161, 122, 0.3);
+}
+
+/* Мобильная навигация скрыта по умолчанию */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none !important;
+  }
+  
+  .nav {
+    display: block !important;
+  }
+}
+
+/* Десктопная навигация */
+.nav__list {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav__link {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav__link:hover,
+.nav__link.active {
+  color: #c7a17a;
+  background: rgba(199, 161, 122, 0.1);
+}
