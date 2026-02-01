@@ -1,43 +1,204 @@
 const menuToggle = document.getElementById('menuToggle');
 const mainNav = document.getElementById('mainNav');
+const body = document.body;
 
 const navOverlay = document.createElement('div');
 navOverlay.className = 'nav-overlay';
 document.body.appendChild(navOverlay);
 
 function toggleMenu() {
-  const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
 
-  menuToggle.classList.toggle('active');
-  menuToggle.setAttribute('aria-expanded', !isExpanded);
-  mainNav.classList.toggle('active');
-  navOverlay.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
+    mainNav.classList.toggle('active');
+    navOverlay.classList.toggle('active');
 
-  document.body.style.overflow = mainNav.classList.contains('active') ? 'hidden' : '';
+    if (mainNav.classList.contains('active')) {
+        body.style.overflow = 'hidden';
+        body.classList.add('menu-open');
+    } else {
+        body.style.overflow = '';
+        body.classList.remove('menu-open');
+    }
 }
 
 menuToggle.addEventListener('click', toggleMenu);
+
 navOverlay.addEventListener('click', toggleMenu);
 
-const navLinks = document.querySelectorAll('.nav_link');
+const navLinks = document.querySelectorAll('.nav__link');
 navLinks.forEach(link => {
-  link.addEventListener('click', () => {
-    if (window.innerWidth <= 1024) {
-      toggleMenu();
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768 && mainNav.classList.contains('active')) {
+            toggleMenu();
+        }
+    });
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mainNav.classList.contains('active')) {
+        toggleMenu();
     }
-  });
+});
+
+let resizeTimer;
+window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        if (window.innerWidth > 768 && mainNav.classList.contains('active')) {
+            toggleMenu();
+        }
+    }, 250);
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+
+        if (href === '#' || href === '') return;
+        
+        e.preventDefault();
+        
+        const target = document.querySelector(href);
+        if (target) {
+            const headerOffset = 70; 
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
 });
 
 const scrollTopButton = document.getElementById('scrollTop');
 
+let scrollTimer;
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    scrollTopButton.classList.add('visible');
-  } else {
-    scrollTopButton.classList.remove('visible');
-  }
-});
+    clearTimeout(scrollTimer);
+    scrollTimer = setTimeout(() => {
+        if (window.scrollY > 300) {
+            scrollTopButton.classList.add('visible');
+        } else {
+            scrollTopButton.classList.remove('visible');
+        }
+    }, 100);
+}, { passive: true });
 
 scrollTopButton.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+
+    setTimeout(() => {
+        document.querySelector('h1').focus();
+    }, 500);
 });
+
+const allButtons = document.querySelectorAll('button, .card__button, .combo__card__button, .giftset__buy');
+
+allButtons.forEach(button => {
+
+    button.addEventListener('click', function(e) {
+        const ripple = document.createElement('span');
+        const rect = this.getBoundingClientRect();
+        const size = Math.max(rect.width, rect.height);
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
+        
+        ripple.style.width = ripple.style.height = size + 'px';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        ripple.classList.add('ripple');
+        
+        this.appendChild(ripple);
+        
+        setTimeout(() => {
+            ripple.remove();
+        }, 600);
+    });
+});
+
+const rippleStyle = document.createElement('style');
+rippleStyle.textContent = `
+    button, .card__button, .combo__card__button, .giftset__buy {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.6);
+        transform: scale(0);
+        animation: ripple-animation 0.6s ease-out;
+        pointer-events: none;
+    }
+    
+    @keyframes ripple-animation {
+        to {
+            transform: scale(4);
+            opacity: 0;
+        }
+    }
+`;
+document.head.appendChild(rippleStyle);
+
+const sections = document.querySelectorAll('section[id]');
+const navItems = document.querySelectorAll('.nav__link');
+
+function highlightNavigation() {
+    let scrollPosition = window.scrollY + 100;
+
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+            navItems.forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('href') === `#${sectionId}`) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    });
+}
+
+let navScrollTimer;
+window.addEventListener('scroll', () => {
+    clearTimeout(navScrollTimer);
+    navScrollTimer = setTimeout(highlightNavigation, 100);
+}, { passive: true });
+
+highlightNavigation();
+
+if ('loading' in HTMLImageElement.prototype) {
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        if (!img.hasAttribute('loading')) {
+            img.setAttribute('loading', 'lazy');
+        }
+    });
+} else {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.classList.add('loaded');
+                    observer.unobserve(img);
+                }
+            }
+        });
+    });
+
+    const lazyImages = document.querySelectorAll('img[data-src]');
+    lazyImages.forEach(img => imageObserver.observe(img));
+}
